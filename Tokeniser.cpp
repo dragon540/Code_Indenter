@@ -44,6 +44,10 @@ void Tokeniser::tokenise(std::string word) {
         t.attribute = COMP;
         tokenTable.push_front(t);
     }
+    else {
+        t.attribute = IDEN;
+        tokenTable.push_front(t);
+    }
     // few other cases are still left
 }
 
