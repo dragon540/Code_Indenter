@@ -19,9 +19,7 @@ int main() {
 
     //file func check
     FileIO fio;
-    std::list<std::string> f = fio.readWordFromFile("/home/shobhit/Desktop/chef_goes_left_right_left.c");
-
-    //fio.readWordFromFile("/home/shobhit/Desktop/Plan.txt");
+    std::list<std::string> f = fio.readWordFromFile("/home/shobhit/Desktop/SourceCode_Indenter/src_example/ex.c");
 
     std::list<std::string> :: reverse_iterator rev_it;
     rev_it = f.rbegin();

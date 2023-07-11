@@ -8,6 +8,19 @@
 #include <iostream>
 #include "FileIO.h"
 
+std::list<std::string> FileIO::removeEmptyElemFromList(std::list<std::string> lt) {
+    std::list<std::string> new_lt;
+    std::list<std::string> :: iterator it;
+    it = lt.begin();
+    while(it != lt.end()) {
+        if( !it->empty() ) {
+            new_lt.push_front(*it);
+        }
+        it++;
+    }
+    return new_lt;
+}
+
 std::list<std::string> FileIO::readLineFromFile(std::string filePath) {
     std::list<std::string> lineTable;
 
@@ -48,15 +61,7 @@ std::list<std::string> FileIO::readWordFromFile(std::string filePath) {
          }
          rev_it++;
     }
-    /***
-    // remove empty elemts from list
-    std::list<std::string> :: iterator it;
-    it = wordTable.begin();
-    while(it != wordTable.end()) {
-        std::cout << *it << std::endl;
-        //if(it->length() == 0)
-          //  wordTable.erase(it);
-        it++;
-    }***/
-    return wordTable;
+    std::list<std::string> cl_wordTable;
+    cl_wordTable = removeEmptyElemFromList(wordTable);
+    return cl_wordTable;
 }
