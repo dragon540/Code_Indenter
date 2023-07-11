@@ -14,6 +14,10 @@ public:
     // of the original list
     std::list<std::string> removeEmptyElemFromList(std::list<std::string> lt);
 
+    // last letters of the last word of the line contains '\n' to depict linebreak
+    // this function takes the list of std::string and removes such '\n' from its elements
+    std::list<std::string> removeLinebreakFromElements(std::list<std::string> lt);
+
     // takes a file path in argument and returns a list of std::string
     // which contains individual lines from the file
     std::list<std::string> readLineFromFile(std::string filePath);

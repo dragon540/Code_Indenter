@@ -13,12 +13,33 @@ std::list<std::string> FileIO::removeEmptyElemFromList(std::list<std::string> lt
     std::list<std::string> :: iterator it;
     it = lt.begin();
     while(it != lt.end()) {
-        if( !it->empty() ) {
+        if( (!it->empty()) && (int)(*it)[0] != 0) {
             new_lt.push_front(*it);
         }
         it++;
     }
     return new_lt;
+}
+
+std::list<std::string> FileIO::removeLinebreakFromElements(std::list<std::string> lt) {
+    std::list<std::string> :: iterator it;
+    it = lt.begin();
+    while(it != lt.end()) {
+        std::string temp = *it;
+        int len = temp.length();
+        //std::cout << len << std::endl;
+        //std::cout << (int)temp[len-1] << std::endl;
+        if( temp[len-1] == 0) {
+            //std::cout << "this word has linebreak = " << temp << std::endl;
+            std::string new_temp = "";
+            for(unsigned int idx = 0; idx<len-1; idx++) {
+                new_temp += temp[idx];
+            }
+            *it = new_temp;
+        }
+        it++;
+    }
+    return lt;
 }
 
 std::list<std::string> FileIO::readLineFromFile(std::string filePath) {
@@ -61,7 +82,8 @@ std::list<std::string> FileIO::readWordFromFile(std::string filePath) {
          }
          rev_it++;
     }
-    std::list<std::string> cl_wordTable;
-    cl_wordTable = removeEmptyElemFromList(wordTable);
-    return cl_wordTable;
+    wordTable = removeEmptyElemFromList(wordTable);
+    wordTable = removeLinebreakFromElements(wordTable);
+
+    return wordTable;
 }

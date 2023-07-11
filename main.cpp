@@ -24,8 +24,7 @@ int main() {
     std::list<std::string> :: reverse_iterator rev_it;
     rev_it = f.rbegin();
     while(rev_it != f.rend()) {
-        std::cout << *rev_it << std::endl;
-        std::cout << rev_it->length() << std::endl;
+        std::cout << "value = " << *rev_it << " length = " << rev_it->length() << std::endl;
         rev_it++;
     }
     std::cout << f.size() << std::endl;
