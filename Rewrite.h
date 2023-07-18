@@ -33,9 +33,15 @@
 
 class Rewrite {
 private:
+    // return a string with "tab_length" number of tab characters
+    // example : ret_nTab(3) return a string x
+    // where x = "\t\t\t"
     std::string ret_nTab(unsigned int tab_length);
+
+    // returns the formatted string which will be finally written to the file
     std::string formattedWriteOnString(std::string original_srcFilePath);
 public:
+    // writes the formatted string (of the indented src) to the dest_filePath
     void fileRewrite(std::string src_filePath, std::string dest_filePath);
 };
 
