@@ -1,3 +1,3 @@
-
-}0; return x); printf("%d\n", x*5; = x 5; = x int {
-main() 	int <stdlib.h> 	#include 
+#include <stdlib.h> int main() {
+	int x = 5; x = x*5; printf("%d\n", x); return 0; 
+	}

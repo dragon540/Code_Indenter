@@ -66,11 +66,11 @@ std::list<Token> Tokeniser::retTokenTable(std::string original_filePath) {
     FileIO fio;
     std::list<std::string> wordList = fio.readWordFromFile(original_filePath);
 
-    std::list<std::string> :: iterator it;
-    it = wordList.begin();
-    while(it != wordList.end()) {
-        tokenise(*it);
-        it++;
+    std::list<std::string> :: reverse_iterator rev_it;
+    rev_it = wordList.rbegin();
+    while(rev_it != wordList.rend()) {
+        tokenise(*rev_it);
+        rev_it++;
     }
 
     return tokenTable;
