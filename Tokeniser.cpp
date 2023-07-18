@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "Tokeniser.h"
+#include "FileIO.h"
 
 void Tokeniser::tokenise(std::string word) {
     Token t;
@@ -59,4 +60,18 @@ void Tokeniser::printAllToken() {
         std::cout << it->value << " : " << it->attribute << std::endl;
         it++;
     }
+}
+
+std::list<Token> Tokeniser::retTokenTable(std::string original_filePath) {
+    FileIO fio;
+    std::list<std::string> wordList = fio.readWordFromFile(original_filePath);
+
+    std::list<std::string> :: iterator it;
+    it = wordList.begin();
+    while(it != wordList.end()) {
+        tokenise(*it);
+        it++;
+    }
+
+    return tokenTable;
 }

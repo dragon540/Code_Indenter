@@ -47,6 +47,8 @@ public:
     void tokenise(std::string word);
 
     void printAllToken();
+
+    std::list<Token> retTokenTable(std::string original_filePath);
 };
 
 
