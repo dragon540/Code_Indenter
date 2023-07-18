@@ -6,11 +6,12 @@
 #include "Tokeniser.h"
 
 #include <string>
+#include <fstream>
 
 std::string Rewrite::ret_nTab(unsigned int tab_length) {
     std::string n_tab = "";
     while(tab_length--) {
-        n_tab += "\\t";
+        n_tab += "\t";
     }
     return n_tab;
 }
@@ -52,7 +53,16 @@ std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) 
                 temp_formattedString += "\n";
                 n_tab--;
                 break;
-
+            case 7:
+                temp_formattedString += it->value;
+                temp_formattedString += "\n";
+                n_tab++;
+                break;
+            case 8:
+                temp_formattedString += "\n";
+                temp_formattedString += ret_nTab(n_tab);
+                temp_formattedString += it->value;
+                break;
         }
         //temp_formattedString += " ";
         it++;
@@ -60,10 +70,12 @@ std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) 
     return temp_formattedString;
 
 }
-/**void Rewrite::fileRewrite(std::string filePath) {
-    // tokenise table of words
-    Tokeniser tok;
+void Rewrite::fileRewrite(std::string src_filePath, std::string dest_filePath) {
+    std::ofstream dest_filestream;
+    dest_filestream.open(dest_filePath, std::ios::out);
 
-    std::list<Token> :: iterator it;
-    it =
-}**/
+    std::string temp_fmtStr = formattedWriteOnString(src_filePath);
+
+    dest_filestream << temp_fmtStr << std::endl;
+
+}

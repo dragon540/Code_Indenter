@@ -32,12 +32,11 @@
 #define LITERAL 11
 
 class Rewrite {
-//private:
-public:
+private:
     std::string ret_nTab(unsigned int tab_length);
     std::string formattedWriteOnString(std::string original_srcFilePath);
-//public:
-    void fileRewrite(std::string filePath);
+public:
+    void fileRewrite(std::string src_filePath, std::string dest_filePath);
 };
 
 

@@ -42,9 +42,15 @@ int main() {
         it++;
     }**/
 
+    /**
     Rewrite rw;
     std::string text = rw.formattedWriteOnString("/home/shobhit/Desktop/SourceCode_Indenter/src_example/ex.c");
     std::cout << text << std::endl;
+    **/
+
+    Rewrite rw;
+    rw.fileRewrite("/home/shobhit/Desktop/SourceCode_Indenter/src_example/ex.c",
+                   "/home/shobhit/Desktop/SourceCode_Indenter/OP_src_example/OPex.c");
 
     return 0;
 }
