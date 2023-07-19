@@ -41,6 +41,9 @@ std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) 
                 temp_formattedString += " ";
                 break;
             case 4:
+                if(temp_formattedString[temp_formattedString.length()-1] == '\n')
+                    temp_formattedString += ret_nTab(n_tab);
+                
                 temp_formattedString += it->value;
                 temp_formattedString += " ";
                 break;
@@ -65,6 +68,10 @@ std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) 
                 temp_formattedString += "\n";
                 temp_formattedString += ret_nTab(n_tab);
                 temp_formattedString += it->value;
+                break;
+            case 12:
+                temp_formattedString += it->value;
+                temp_formattedString += "\n";
                 break;
         }
         //temp_formattedString += " ";

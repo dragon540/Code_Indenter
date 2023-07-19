@@ -30,6 +30,8 @@
 #define COMP 10
 // literal - "abcd", 8, 'c', 9.7
 #define LITERAL 11
+// semi-colon
+#define TERMINATOR 12
 
 class Rewrite {
 private:
