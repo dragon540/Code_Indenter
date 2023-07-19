@@ -26,6 +26,8 @@ public:
     // which contains individual word from the file
     // it uses "std::list<std::string> readLineFromFile(std::string filePath)" internally
     std::list<std::string> readWordFromFile(std::string filePath);
+
+    std::list<std::string> readIndWordFromFile(std::string filePath);
 };
 
 

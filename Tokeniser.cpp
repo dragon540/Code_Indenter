@@ -86,7 +86,7 @@ void Tokeniser::printAllToken() {
 
 std::list<Token> Tokeniser::retTokenTable(std::string original_filePath) {
     FileIO fio;
-    std::list<std::string> wordList = fio.readWordFromFile(original_filePath);
+    std::list<std::string> wordList = fio.readIndWordFromFile(original_filePath);
 
     std::list<std::string> :: reverse_iterator rev_it;
     rev_it = wordList.rbegin();

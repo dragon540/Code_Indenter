@@ -87,3 +87,24 @@ std::list<std::string> FileIO::readWordFromFile(std::string filePath) {
 
     return wordTable;
 }
+
+std::list<std::string> FileIO::readIndWordFromFile(std::string filePath) {
+    std::list<std::string> wordTable = readWordFromFile(filePath);
+    std::list<std::string> :: iterator it;
+    it = wordTable.begin();
+    while(it != wordTable.end()) {
+        if((*it)[it->length()-1] == ';') {
+            std::cout << "abcd" << std::endl;
+            std::string temp = "";
+
+            for(unsigned int idx=0; idx<it->length()-1; idx++)
+                temp += (*it)[idx];
+
+            *it = temp;
+            wordTable.insert(++it, ";");
+            it--;
+        }
+        it++;
+    }
+    return wordTable;
+}

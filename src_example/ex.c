@@ -1,9 +1,4 @@
-#include <stdlib.h>
-
-
-
-                                        int main() {
-int x =                                                              5;
+#include <stdlib.h> int main() { int x =                                                              5;
     x 
 = x*5;
         printf("%d\n", x);
