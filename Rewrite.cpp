@@ -32,6 +32,8 @@ std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) 
                 temp_formattedString += " ";
                 break;
             case 2:
+                temp_formattedString += it->value;
+                temp_formattedString += "\n";
                 break;
             case 3:
                 temp_formattedString += ret_nTab(n_tab);

@@ -32,6 +32,10 @@ void Tokeniser::tokenise(std::string word) {
         t.attribute = PRE_PR_KW;
         tokenTable.push_front(t);
     }
+    else if( isStringHeaderVal(word) ) {
+        t.attribute = PRE_PR_VAL;
+        tokenTable.push_front(t);
+    }
     else if( (word == "int") || (word == "short") || (word == "long") || (word == "double") || (word == "float")
     || (word == "char")) {
         t.attribute = DATA_TYPE;
