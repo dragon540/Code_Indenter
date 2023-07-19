@@ -6,6 +6,24 @@
 #include "Tokeniser.h"
 #include "FileIO.h"
 
+bool Tokeniser::isStringInQuotes(std::string word) {
+    if(word[0] == '"' && word[word.length()-1] == '"')
+        return true;
+    else
+        return false;
+}
+
+bool Tokeniser::isStringHeaderVal(std::string word) {
+    unsigned int last_idx = word.length()-1;
+
+    if(word[0] == '<' && word[last_idx] == '>')
+        return true;
+    else if( isStringInQuotes(word) && (word[last_idx-1] == 'h') && (word[last_idx-2] == '.') )
+        return true;
+    else
+        return false;
+}
+
 void Tokeniser::tokenise(std::string word) {
     Token t;
     t.value = word;

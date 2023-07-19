@@ -49,6 +49,10 @@ public:
     void printAllToken();
 
     std::list<Token> retTokenTable(std::string original_filePath);
+
+private:
+    bool isStringInQuotes(std::string word);
+    bool isStringHeaderVal(std::string word);
 };
 
 

@@ -59,6 +59,7 @@ std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) 
                 n_tab++;
                 break;
             case 8:
+                n_tab--;
                 temp_formattedString += "\n";
                 temp_formattedString += ret_nTab(n_tab);
                 temp_formattedString += it->value;
