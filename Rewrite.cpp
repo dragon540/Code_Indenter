@@ -68,16 +68,20 @@ std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) 
                 temp_formattedString += "\n";
                 temp_formattedString += ret_nTab(n_tab);
                 temp_formattedString += it->value;
+                temp_formattedString += "\n";
+                break;
+            case 9:
+                temp_formattedString += it->value;
+                break;
+            case 10:
+                temp_formattedString += it->value;
+                temp_formattedString += " ";
                 break;
             case 12:
                 temp_formattedString += it->value;
-                //std::list<Token> :: iterator back_it_toReadCloseBracket;
-                //back_it_toReadCloseBracket = it;
                 unsigned long formattedStrLen = temp_formattedString.length();
                 formattedStrLen--;
                 while(formattedStrLen > 0) {
-                    //std::string tempStr = back_it_toReadCloseBracket->value;
-                    //int tempStrLen = tempStr.length();
                     if(temp_formattedString[formattedStrLen] == '(') {
                         temp_formattedString += " ";
                         break;
@@ -90,13 +94,12 @@ std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) 
                     formattedStrLen--;
                 }
                 break;
+            }
+            it++;
         }
-        //temp_formattedString += "";
-        it++;
-    }
     return temp_formattedString;
-
 }
+
 void Rewrite::fileRewrite(std::string src_filePath, std::string dest_filePath) {
     std::ofstream dest_filestream;
     dest_filestream.open(dest_filePath, std::ios::out);
