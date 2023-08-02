@@ -18,7 +18,7 @@ std::string Rewrite::ret_nTab(unsigned int tab_length) {
 
 std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) {
     std::string temp_formattedString = "";
-    Tokeniser t;
+    Tokeniser t = Tokeniser();
     std::list<Token> temp_tokenTable = t.retTokenTable(original_srcFilePath);
     std::list<Token> :: iterator it;
     it = temp_tokenTable.begin();
@@ -43,7 +43,7 @@ std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) 
             case 4:
                 if(temp_formattedString[temp_formattedString.length()-1] == '\n')
                     temp_formattedString += ret_nTab(n_tab);
-                
+
                 temp_formattedString += it->value;
                 temp_formattedString += " ";
                 break;
@@ -71,10 +71,27 @@ std::string Rewrite :: formattedWriteOnString(std::string original_srcFilePath) 
                 break;
             case 12:
                 temp_formattedString += it->value;
-                temp_formattedString += "\n";
+                //std::list<Token> :: iterator back_it_toReadCloseBracket;
+                //back_it_toReadCloseBracket = it;
+                unsigned long formattedStrLen = temp_formattedString.length();
+                formattedStrLen--;
+                while(formattedStrLen > 0) {
+                    //std::string tempStr = back_it_toReadCloseBracket->value;
+                    //int tempStrLen = tempStr.length();
+                    if(temp_formattedString[formattedStrLen] == '(') {
+                        temp_formattedString += " ";
+                        break;
+                    }
+                    else if(temp_formattedString[formattedStrLen] == ')' ||
+                    formattedStrLen==1) {
+                        temp_formattedString += "\n";
+                        break;
+                    }
+                    formattedStrLen--;
+                }
                 break;
         }
-        //temp_formattedString += " ";
+        //temp_formattedString += "";
         it++;
     }
     return temp_formattedString;
