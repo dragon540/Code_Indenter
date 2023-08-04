@@ -4,10 +4,10 @@ Many times the source code written without the help of IDEs and source code edit
 This program takes a C source code file as input and convert it into a properly formatted and indented source 
 code file.
 
-The project is limited to indenting C programming language.
+The program is limited to indenting source code files written in C programming language.
 
 ## Example
 
-| Unindented Source Code File | Indented Source Code File |
-|:---------------------------:|:-------------------------:|
-|  ![](/Pictures/Input.png)   | ![](/Pictures/Output.png) |
+| Unindented Source Code File<br/>(INPUT) | Indented Source Code File<br/>(OUTPUT) |
+|:----------------------------------:|:---------------------------------:|
+|      ![](/Pictures/Input.png)      |     ![](/Pictures/Output.png)     |
